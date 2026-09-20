@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { getReports, clearReports } from '../utils/storage.js'
+import { getReports, clearReports } from '../utils/Storage.js'
 import { FaChartBar, FaCheck, FaTimes, FaArrowLeft, FaTrash, FaArrowRight, FaClock } from 'react-icons/fa'
 
 function ReportModal({ onClose }) {

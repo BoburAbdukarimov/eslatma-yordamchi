@@ -25,7 +25,9 @@ function App() {
   const taskSecondsRef = useRef(0)
   const tasksRef = useRef(tasks)
 
-  tasksRef.current = tasks
+  useEffect(() => {
+    tasksRef.current = tasks
+  }, [tasks])
 
   const allDone = tasks.every(t =>
     t.status === "bajarildi" || t.status === "o'tkazib yuborildi"

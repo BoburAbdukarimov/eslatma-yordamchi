@@ -1,6 +1,4 @@
-import { useEffect, useRef } from 'react'
-
-function TimerCard({ isStarted, seconds, allDone, taskSeconds, currentDuration, doneTasks, totalTasks }) {
+function TimerCard({ isStarted, seconds, taskSeconds, currentDuration, doneTasks, totalTasks }) {
 
   const format = (sec) => {
     const h = String(Math.floor(sec / 3600)).padStart(2, '0')
