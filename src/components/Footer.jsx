@@ -1,6 +1,6 @@
 import { FaVolumeUp, FaBell, FaPalette, FaPlay, FaPause, FaRedo, FaChartBar,FaUsers } from 'react-icons/fa'
 
-function Footer({ isStarted, onStart, onReset, allDone, onReport,onXodimlar }) {
+function Footer({ isStarted, onStart, onReset, allDone, onReport, onXodimlar, isDark }) {
   return (
     <div className="footer">
       <div className="footer-left">
@@ -22,7 +22,7 @@ function Footer({ isStarted, onStart, onReset, allDone, onReport,onXodimlar }) {
           <FaPalette size={14} color="#a855f7" />
           <div>
             <p className="footer-label">Mavzu</p>
-            <p className="footer-value blue">DARK</p>
+            <p className="footer-value blue">{isDark ? 'DARK' : 'LIGHT'}</p>
           </div>
         </div>
       </div>

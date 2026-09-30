@@ -217,6 +217,7 @@ function App() {
         allDone={allDone}
         onReport={() => setShowReport(true)}
         onXodimlar={() => setShowXodimlar(true)}
+        isDark={isDark}
       />
     </div>
   )
