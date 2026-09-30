@@ -1,7 +1,7 @@
 {
   "name": "vazifalar-monitori",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "electron.cjs",
   "scripts": {
     "dev": "vite",
@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "electron": "electron .",
-    "dist": "npm run build && electron-builder"
+    "dist": "npm run build && electron-builder --win"
   },
   "build": {
    "appId": "com.vazifalar.yordamchi",
