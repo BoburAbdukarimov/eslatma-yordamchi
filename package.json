@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "electron": "electron .",
-    "dist": "npm run build && electron-builder"
+    "dist": "npm run build && electron-builder --win"
   },
   "build": {
    "appId": "com.vazifalar.yordamchi",
