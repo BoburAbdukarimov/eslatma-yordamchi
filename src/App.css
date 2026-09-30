@@ -640,15 +640,13 @@ body {
   justify-content: center;
   z-index: 1100;
   padding: 24px;
-  animation: taskOverlayFade 3.2s ease forwards;
+  animation: taskOverlayIn 0.25s ease;
   cursor: pointer;
 }
 
-@keyframes taskOverlayFade {
+@keyframes taskOverlayIn {
   0% { opacity: 0; }
-  8% { opacity: 1; }
-  82% { opacity: 1; }
-  100% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .task-start-card {
@@ -695,6 +693,27 @@ body {
 
 .dark .task-start-title { color: #ffffff; }
 .light .task-start-title { color: #111111; }
+
+.task-start-complete-btn {
+  margin-top: 32px;
+  background: #f59e0b;
+  color: #111111;
+  border: none;
+  padding: 14px 36px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(245,158,11,0.3);
+}
+
+.task-start-complete-btn:hover {
+  background: #fbbf24;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(245,158,11,0.4);
+}
 
 /* ===== MODAL ===== */
 .modal-overlay {

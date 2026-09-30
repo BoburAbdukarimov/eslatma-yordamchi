@@ -45,8 +45,6 @@ function App() {
     if (!currentTask || currentTask.id === shownTaskIdRef.current) return
     shownTaskIdRef.current = currentTask.id
     setTaskPopupId(currentTask.id)
-    const timeout = setTimeout(() => setTaskPopupId(null), 3200)
-    return () => clearTimeout(timeout)
   }, [currentTask])
 
   useEffect(() => {
@@ -195,7 +193,11 @@ function App() {
     <div className={`app ${isDark ? 'dark' : 'light'}`}>
       {showReport && <ReportModal onClose={() => setShowReport(false)} />}
       {taskPopupId === currentTask?.id && currentTask && (
-        <TaskStartOverlay task={currentTask} onClose={() => setTaskPopupId(null)} />
+        <TaskStartOverlay
+          task={currentTask}
+          onComplete={(id) => { handleComplete(id); setTaskPopupId(null) }}
+          onClose={() => setTaskPopupId(null)}
+        />
       )}
       {allDone && (
         <div className={`success-banner ${hasSkipped ? 'warning' : ''}`}>
