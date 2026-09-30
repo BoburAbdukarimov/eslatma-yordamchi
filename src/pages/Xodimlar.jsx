@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { FaUser, FaPhone, FaHome, FaBriefcase, FaPlus, FaTrash, FaEdit, FaSave, FaTimes, FaSearch, FaUsers } from 'react-icons/fa'
+import { FaPlus, FaTrash, FaEdit, FaSave, FaTimes, FaSearch, FaUsers } from 'react-icons/fa'
 import { getXodimlar, saveXodimlar } from '../utils/xodimlarStorage.js'
 
 const initialForm = {

@@ -9,6 +9,7 @@ import { playBeep, playSuccess, speak } from './utils/sound.js'
 import { generateTasks } from './data/Task.js'
 import { saveReport } from './utils/Storage.js'
 import ReportModal from './components/ReportModal'
+import TaskStartOverlay from './components/TaskStartOverlay'
 import Xodimlar from './pages/Xodimlar.jsx'
 import './App.css'
 
@@ -22,10 +23,14 @@ function App() {
   const [taskSeconds, setTaskSeconds] = useState(0)
   const [showReport, setShowReport] = useState(false)
   const [showXodimlar, setShowXodimlar] = useState(false)
+  const [taskPopupId, setTaskPopupId] = useState(null)
   const taskSecondsRef = useRef(0)
   const tasksRef = useRef(tasks)
+  const shownTaskIdRef = useRef(null)
 
-  tasksRef.current = tasks
+  useEffect(() => {
+    tasksRef.current = tasks
+  }, [tasks])
 
   const allDone = tasks.every(t =>
     t.status === "bajarildi" || t.status === "o'tkazib yuborildi"
@@ -35,6 +40,12 @@ function App() {
   const currentTask = tasks.find(t => t.status === "jarayon")
   const doneTasks = tasks.filter(t => t.status === "bajarildi").length
   const totalTasks = tasks.length
+
+  useEffect(() => {
+    if (!currentTask || currentTask.id === shownTaskIdRef.current) return
+    shownTaskIdRef.current = currentTask.id
+    setTaskPopupId(currentTask.id)
+  }, [currentTask])
 
   useEffect(() => {
     if (!allDone || !isStarted) return
@@ -181,6 +192,13 @@ function App() {
   return (
     <div className={`app ${isDark ? 'dark' : 'light'}`}>
       {showReport && <ReportModal onClose={() => setShowReport(false)} />}
+      {taskPopupId === currentTask?.id && currentTask && (
+        <TaskStartOverlay
+          task={currentTask}
+          onComplete={(id) => { handleComplete(id); setTaskPopupId(null) }}
+          onClose={() => setTaskPopupId(null)}
+        />
+      )}
       {allDone && (
         <div className={`success-banner ${hasSkipped ? 'warning' : ''}`}>
           {hasSkipped
@@ -215,6 +233,7 @@ function App() {
         allDone={allDone}
         onReport={() => setShowReport(true)}
         onXodimlar={() => setShowXodimlar(true)}
+        isDark={isDark}
       />
     </div>
   )

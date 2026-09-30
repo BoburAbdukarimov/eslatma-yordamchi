@@ -2,8 +2,6 @@ import { FaCheck, FaTimes, FaClock } from 'react-icons/fa'
 import { BsCircle } from 'react-icons/bs'
 
 function TaskItem({ task, onComplete }) {
-  const isJarayon = task.status === "jarayon"
-
   return (
     <div className={`task-item ${task.status === "o'tkazib yuborildi" ? "otkazib" : task.status}`}>
       

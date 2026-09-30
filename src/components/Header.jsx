@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { FaBell, FaSun, FaMoon, FaClipboardList } from 'react-icons/fa'
 
-function Header({ isStarted, onStart, isDark, setIsDark }) {
+function Header({ isDark, setIsDark }) {
   const [time, setTime] = useState(new Date())
 
   useEffect(() => {
